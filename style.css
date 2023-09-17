@@ -16,7 +16,7 @@ body{
     background-color: var(--pink)!important;
 }
 .back{
-    background-image: url(images/download.png);
+    background-image: url(download.png);
 }
 
 .navbar{
@@ -96,7 +96,7 @@ body{
     cursor: pointer;
   }
 .db{
-    background-image: url(images/bg4.jpg);
+    background-image: url(bg4.jpg);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
