@@ -5,6 +5,7 @@
     --sm-font: 'Poppins', sans-serif;
     --pink:   rgb(7 255 49);
 }
+
 body{
     font-family: var(--sm-font);
     background-color: rgb(4,4,20);
@@ -16,7 +17,7 @@ body{
     background-color: var(--pink)!important;
 }
 .back{
-    background-image: url(download.png);
+    background-image: url(images/download.png);
 }
 
 .navbar{
@@ -96,7 +97,7 @@ body{
     cursor: pointer;
   }
 .db{
-    background-image: url(bg4.jpg);
+    background-image: url(images/bg4.jpg);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -138,9 +139,6 @@ background-color: rgba(225,225,225,0.1);
 }
 
 
-
-
-
 .b-example-divider{
     width: 100%;
     height: 3rem;
@@ -149,3 +147,26 @@ background-color: rgba(225,225,225,0.1);
     border-width: 1px 0;
     box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0,0);
 }
+
+
+
+
+
+.animation-container {
+ 
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+      100%{
+        transform: translateY(0);
+
+      }        
+  }
+    
