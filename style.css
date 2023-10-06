@@ -17,7 +17,7 @@ body{
     background-color: var(--pink)!important;
 }
 .back{
-    background-image: url(images/download.png);
+    background-image: url(download.png);
 }
 
 .navbar{
