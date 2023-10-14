@@ -25,7 +25,6 @@
 
 </head>
 
-
 <body>
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -36,7 +35,10 @@
 
       <div class="order-lg-2 nav-btns">
         <button type="button" class="btn position-relative">
-          <a href="cart.html" class="text-light"><i class="fa fa-shopping-cart"></i></a>
+          <a href="cart.html" class="text-light"><i class="fa fa-shopping-cart m-2"></i></a>
+          <a href="profile.php" class="text-light"><i class="fa fa-user m-2"></i></a>
+          <a href="register.php" class="btn btn-success m-2">Register</a>
+          <a href="login.php" class="btn btn-outline-light m-2">Login</a>
         </button>
 
       </div>
@@ -62,6 +64,12 @@
           <li class="nav-item px-2 py-2 border-0">
             <a class="nav-link text-uppercase text-light" href="portfolio.html">portfolio</a>
           </li>
+          <!-- <li class="nav-item px-3 py-2 border-0">
+            <a class="nav-link text-uppercase text-light" href="">login</a>
+          </li>
+          <li class="nav-item px-2 py-2 border-0">
+            <a class="nav-link text-uppercase text-light" href="">sign up</a>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -143,7 +151,7 @@
           <li class="list-group-item rate text-light"><span class="discount ">₹ 50.00</span> ₹ 30.00</li>
         </ul>
         <div class="card-body text-center">
-          <a href="cart.html" class="btn btn-outline-light" onclick="addToCart('RENDER ID : 001', 30.00)">ADD TO CART</a>
+          <a href="cart.html" class="btn btn-outline-light" onclick="addToCart('RENDER ID : 001', 30.00,'images/3D (13).png')">ADD TO CART</a>
         </div>
       </div>
       <div class="card mx-auto d-block  product hover-zoomin flex-items m-4" data-aos="fade-up" style="width: 18rem;">
@@ -157,7 +165,7 @@
         </ul>
 
         <div class="card-body text-center">
-          <a href="cart.html" class="btn btn-outline-light" onclick="addToCart('RENDER ID : 002', 30.00)">ADD TO CART</a>
+          <a href="cart.html" class="btn btn-outline-light" onclick="addToCart('RENDER ID : 002', 30.00,'images/3D (1).png')">ADD TO CART</a>
         </div>
       </div>
       <div class="card mx-auto d-block product  hover-zoomin flex-items m-4" data-aos="fade-up" style="width: 18rem;">
@@ -170,7 +178,7 @@
           <li class="list-group-item rate text-light"><span class="discount ">₹ 50.00</span> ₹ 30.00</li>
         </ul>
         <div class="card-body text-center">
-          <a href="cart.html" class="btn btn-outline-light" onclick="addToCart('RENDER ID : 003', 30.00)">ADD TO CART</a>
+          <a href="cart.html" class="btn btn-outline-light" onclick="addToCart('RENDER ID : 003', 30.00,'images/3D (16).png')">ADD TO CART</a>
         </div>
       </div>
     </div>
@@ -394,10 +402,7 @@
       </div>
     </footer>
   </div>
-
 </body>
-
-
 
   <!-- end of footer -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -412,7 +417,4 @@
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
     <script src="script.js"></script>
-
-    
-
 </html>
