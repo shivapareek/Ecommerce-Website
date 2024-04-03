@@ -13,15 +13,17 @@
         <button type="submit">Sign Up</button>
     </form>
 
-    <script>
-        function signup() {
-            // Perform signup logic here
-            // Example: Validate form fields, send data to backend, etc.
-            // Assuming signup is successful
-            // Call the JavaScript function to notify Flutter app
-            window.flutter_inappwebview.callHandler('SignupChannel', 'Signup Successful');
-            return false; // Prevent form submission
-        }
-    </script>
+   <script>
+    function signup() {
+        // Perform signup logic here
+        // Example: Validate form fields, send data to backend, etc.
+        // Assuming signup is successful
+        // Call the JavaScript function to notify Flutter app
+        window.flutter_inappwebview.callHandler('SignupChannel', 'Signup Successful');
+        // Redirect to login page
+        window.location.href = 'https://yourdomain.com/login.html';
+        return false; // Prevent form submission
+    }
+</script>
 </body>
 </html>
