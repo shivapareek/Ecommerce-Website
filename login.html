@@ -14,14 +14,17 @@
     </form>
 
     <script>
-        function login() {
-            // Perform login logic here
-            // Example: Validate form fields, send data to backend, etc.
-            // Assuming login is successful
-            // Call the JavaScript function to notify Flutter app
-            window.flutter_inappwebview.callHandler('LoginChannel', 'Login Successful');
-            return false; // Prevent form submission
-        }
-    </script>
+    function login() {
+        // Perform login logic here
+        // Example: Validate form fields, send data to backend, etc.
+        // Assuming login is successful
+        // Call the JavaScript function to notify Flutter app
+        window.flutter_inappwebview.callHandler('LoginChannel', 'Login Successful');
+        // Redirect to index page
+        window.location.href = 'https://yourdomain.com/index.html';
+        return false; // Prevent form submission
+    }
+</script>
+
 </body>
 </html>
