@@ -1,0 +1,136 @@
+<?php
+$showAlert = false;
+$showError = false;
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    include '_dbconnect.php';
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $cpassword = $_POST["cpassword"];
+  
+    $existSql = "SELECT * FROM `users` WHERE username = '$username'";
+    $result = mysqli_query($conn, $existSql);
+    $numExistRows = mysqli_num_rows($result);
+    if($numExistRows > 0){
+        $showError = "Username Already Exists";
+    }
+    else{
+        if(($password == $cpassword)){
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO `users` ( `username`, `password`, `dt`) VALUES ('$username', '$password', current_timestamp())";
+            $result = mysqli_query($conn, $sql);
+            if ($result){
+                $showAlert = true;
+            }
+        }
+        else{
+            $showError = "Passwords do not match";
+        }
+    }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="shortcut icon" type="x-icon" href="images/icon.jpg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
+        <span class="text-uppercase fw-lighter ms-2">Samrat</span>
+      </a>
+
+      <div class="order-lg-2 nav-btns">
+        <button type="button" class="btn position-relative">
+            <a href="login.php" class="btn btn-outline-light m-2">Login</a>
+          <a href="cart.html" class="text-light"><i class="fa fa-shopping-cart"></i></a>
+        </button>
+      </div>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+        <ul class="navbar-nav mx-auto text-center">
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-light" href="index.html">home</a>
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-light" href="shop.html">shop</a>
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-light" href="about.html">about</a>
+          </li>
+          <li class="nav-item px-2 py-2 border-0">
+            <a class="nav-link text-uppercase text-light" href="contact.html">contact</a>
+          </li>
+          <li class="nav-item px-2 py-2 border-0">
+            <a class="nav-link text-uppercase text-light" href="portfolio.html">portfolio</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- end of navbar -->
+  <div class="b-example-divider"></div>
+  <div class="b-example-divider"></div>
+
+<?php
+  if ($showAlert){
+  echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> Your account is now created and you can login
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>';
+  }
+  if ($showError){
+  echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error!</strong> ' .$showError. '
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>';
+  }
+  ?>
+  
+<div class="container">
+    <h1 class="text-center text-light">Sign Up To Our Website</h1>
+    <form action ="signup.php" method ="post">
+  <div class="form-group">
+    <input type="text" class="form-control m-3" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter Username" autocomplete ="off" required>
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control m-3" id="password" name="password" placeholder="Password" autocomplete ="off" required>
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control m-3" id="cpassword" name="cpassword" placeholder="Confirm Password" autocomplete ="off" required>
+    <small id="passHelp" class="form-text text-muted m-3">Make Sure to type the same password</small>
+  </div>
+  <button type="submit" class="btn btn-primary m-3">Sign Up</button>
+</form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
