@@ -24,14 +24,6 @@ A responsive ecommerce frontend built using **HTML**, **CSS**, **JavaScript**, a
 - 📱 Mobile-friendly responsive design
 - ⚡ Fast and lightweight static site
 
-
----
-
-## 🖼️ Preview
-
-![Homepage Screenshot](./assets/screenshot-home.png)
-> *(Replace with your actual image path if available)*
-
 ---
 
 ## 🚀 How to Run
@@ -46,7 +38,7 @@ A responsive ecommerce frontend built using **HTML**, **CSS**, **JavaScript**, a
 
 👨‍💻 Developed by **Shiva Pareek**  
 🔗 [My Portfolio](https://shivapareek.github.io/shivaportfolio)  
-📧 `shivapareekwork@gmail.com`
+📧 `pareekshiva2004@gmail.com`
 
 ---
 
